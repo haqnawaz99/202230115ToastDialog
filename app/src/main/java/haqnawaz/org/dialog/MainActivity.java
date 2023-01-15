@@ -16,7 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    Button button, buttonAlert, buttonAlert1;
+    Button button, buttonAlert, buttonAlert1, buttonAlertList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         button = findViewById(R.id.button);
         buttonAlert = findViewById(R.id.button_alert_dialog);
         buttonAlert1 = findViewById(R.id.button_alert_dialog1);
+        buttonAlertList = findViewById(R.id.button_alert_dialog_with_list);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,33 +72,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        buttonAlert1.setOnClickListener(new View.OnClickListener() {
+        buttonAlertList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String [] Colors = {"Red", "Green", "Blue"};
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                        builder.setIcon(R.drawable.ic_baseline_3p_24)
-                        .setTitle("Test Dialog")
-                        .setMessage("Do you want to leave us")
-                        .setPositiveButton("Leave", new DialogInterface.OnClickListener() {
-                            @Override
+                builder.setTitle("SetColor")
+                        .setItems(Colors, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-                                finish();
-                            }
-                        })
-                        .setNegativeButton("Stay", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        })
-                        .setNeutralButton("What up", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                Toast.makeText(getApplicationContext(), "Click Leave to close and Stay to cancel",
-                                        Toast.LENGTH_LONG).show();
-                            }
-                        }).show();
-
+                            Toast.makeText(MainActivity
+                             .this, Colors[which], Toast.LENGTH_SHORT).show();
+                        }
+                        });
+                AlertDialog dialog = builder.create();
+                dialog.show();
             }
         });
     }
