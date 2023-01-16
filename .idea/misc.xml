@@ -3,9 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Musa/Desktop/Dialog/app/src/main/res/drawable/ic_baseline_person_search_24.xml" value="0.1" />
         <entry key="..\:/Users/Musa/Desktop/Dialog/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/Musa/Desktop/Dialog/app/src/main/res/layout/activity_main2.xml" value="0.1" />
-        <entry key="..\:/Users/Musa/Desktop/Dialog/app/src/main/res/layout/my_layout.xml" value="0.18703703703703703" />
+        <entry key="..\:/Users/Musa/Desktop/Dialog/app/src/main/res/layout/login_dialog.xml" value="0.2671875" />
+        <entry key="..\:/Users/Musa/Desktop/Dialog/app/src/main/res/layout/my_layout.xml" value="0.1" />
       </map>
     </option>
   </component>
