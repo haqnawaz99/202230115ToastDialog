@@ -18,7 +18,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    Button button, buttonAlert, buttonAlert1, buttonAlertList, buttonMC;
+    Button button, buttonAlert, buttonAlert1, buttonAlertList, buttonMC, buttonCustDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
         buttonAlert1 = findViewById(R.id.button_alert_dialog1);
         buttonAlertList = findViewById(R.id.button_alert_dialog_with_list);
         buttonMC = findViewById(R.id.button_alert_dialog_with_mc);
+        buttonCustDialog = findViewById(R.id.button_customized_dialog);
+
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -131,6 +133,37 @@ public class MainActivity extends AppCompatActivity {
                         });
                                 AlertDialog dialog  = builder.create();
                                 dialog.show();
+            }
+        });
+
+        buttonCustDialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+
+// Set the layout for the dialog
+                LayoutInflater inflater = getLayoutInflater();
+                final View dialogView = inflater.inflate(R.layout.login_dialog, null);
+                builder.setView(dialogView);
+
+// Add the buttons
+                builder.setPositiveButton("Login", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // Login logic here
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // User cancelled the dialog
+                    }
+                });
+
+// Create the AlertDialog
+                AlertDialog dialog = builder.create();
+
+// Show the dialog
+                dialog.show();
+
             }
         });
     }
